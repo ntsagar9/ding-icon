@@ -1,5 +1,6 @@
+import React from 'react'
 import { useState } from 'react'
-import { DingIconProvider, Icon } from 'ding-icons'
+import { DingIconProvider } from 'ding-icons'
 import icons from './icons.json'
 import useSearch from './hooks/useSearch'
 import IconGrid from './components/IconGrid'

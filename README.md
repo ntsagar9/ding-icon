@@ -34,14 +34,15 @@ function App() {
   return (
     <DingIconProvider color="#334155" size="1.5em">
       <div className="app-header">
-        <Icon icon={Icons.ZoomIcon} />
+        <Icon name="zoom" className="icon" />
         <Icon 
-          icon={Icons.ZoomInIcon} 
+          name="zoom-in"
           size="2em"
           className="featured-icon"
           style={{ marginLeft: 12 }}
         />
         <Icon 
+          name="zoom-out"
           icon={Icons.ZoomOutIcon}
           color="#ef4444"
         />

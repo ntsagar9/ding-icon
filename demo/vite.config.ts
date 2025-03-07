@@ -6,7 +6,8 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      'ding-icons': path.resolve(__dirname, '../dist/index.esm.js')
+      // Add this alias configuration
+      'ding-icons': path.resolve(__dirname, '../dist/ding-icons.es.js')
     }
   },
   base: '/ding-icons/'

@@ -17,12 +17,16 @@
   },
   "scripts": {
     "dev": "vite build --watch",
+    "demo:dev": "cd demo && pnpm install && pnpm dev",
+    "demo:build": "cd demo && pnpm install && pnpm build",
+    "demo:preview": "cd demo && pnpm preview",
     "build": "rm -rf dist && tsc && vite build",
     "prepack": "pnpm build",
     "test": "vitest",
     "changeset": "pnpm exec changeset",
     "version-packages": "pnpm exec changeset version",
-    "release": "pnpm build && pnpm exec changeset publish"
+    "release": "pnpm build && pnpm exec changeset publish",
+    "postinstall": "pnpm build"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
