@@ -1,6 +1,7 @@
 {
   "name": "ding-icons",
-  "version": "2.0.0",
+  "version": "2.0.2",
+  "type": "module",
   "main": "dist/index.cjs.js",
   "sideEffects": [
     "**/*.css",
