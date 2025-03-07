@@ -20,3 +20,6 @@ dist
 
 # Testing
 coverage
+
+# Changesets
+.changeset/*.md
