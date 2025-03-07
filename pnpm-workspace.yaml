@@ -1,0 +1,3 @@
+packages:
+  - 'demo'
+  - '.' # Include root directory as a workspace package

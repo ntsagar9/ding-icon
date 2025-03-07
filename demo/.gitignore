@@ -1,0 +1,11 @@
+# Local development
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+
+# Editor
+.vscode
+.idea

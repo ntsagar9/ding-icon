@@ -1,0 +1,22 @@
+# Dependencies
+node_modules
+.pnpm
+
+# Build files
+dist
+.cache
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+
+# Logs
+*.log
+
+# Editor
+.vscode
+.idea
+
+# Testing
+coverage
