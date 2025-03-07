@@ -1,6 +1,8 @@
 import React from 'react'
 import { useDingIcon } from './context';
 
+import './styles/icons.css';
+
 type IconName = string;
 
 interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {

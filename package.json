@@ -2,17 +2,23 @@
   "name": "ding-icons",
   "version": "2.0.0",
   "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
-  "sideEffects": false,
-  "files": [
-    "dist"
+  "sideEffects": [
+    "**/*.css",
+    "**/*.scss",
+    "dist/styles/*.css",
+    "dist/fonts/*"
   ],
+  "files": [
+    "dist",
+    "src/styles/icons.css"
+  ],
+  "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.esm.js",
-      "require": "./dist/index.cjs.js",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/es/index.mjs",
+      "require": "./dist/cjs/index.cjs",
+      "types": "./dist/types/index.d.ts",
+      "style": "./dist/styles/icons.css"
     }
   },
   "scripts": {
@@ -41,6 +47,7 @@
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.5.2",
+    "vite-plugin-static-copy": "2.3.0",
     "vitest": "^0.34.3"
   }
 }

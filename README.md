@@ -43,7 +43,6 @@ function App() {
         />
         <Icon 
           name="zoom-out"
-          icon={Icons.ZoomOutIcon}
           color="#ef4444"
         />
       </div>

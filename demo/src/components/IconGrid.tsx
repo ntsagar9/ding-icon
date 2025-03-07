@@ -1,4 +1,4 @@
-import { Icon } from 'ding-icons'
+import { Icon } from 'ding-icons';
 
 export default function IconGrid({ icons }) {
   return (
