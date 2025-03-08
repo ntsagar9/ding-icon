@@ -1,7 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDingIcon } from './context';
-
-import './styles/icons.css';
 
 type IconName = string;
 
@@ -11,6 +9,8 @@ interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
   color?: string
 }
 
+const styleCache = new Set();
+
 export const Icon = ({
   name,
   size,
@@ -19,6 +19,15 @@ export const Icon = ({
   ...props
 }: IconProps) => {
   const context = useDingIcon()
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !styleCache.has(name)) {
+      import(`../styles/icons/${name}.css`)
+        .then(() => styleCache.add(name))
+        .catch(console.error);
+    }
+  }, [name]);
+
   
   return (
     <span

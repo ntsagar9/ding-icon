@@ -3,11 +3,13 @@ import React, { createContext, useContext, useMemo } from 'react'
 export type DingIconContextType = {
   color?: string
   size?: number | string
+  fill?: string
   className?: string
 }
 
 const DingIconContext = createContext<DingIconContextType>({
   color: '#717375',
+  fill: 'currentColor',
   size: '1em'
 })
 

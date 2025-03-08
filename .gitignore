@@ -23,3 +23,6 @@ coverage
 
 # Changesets
 .changeset/*.md
+
+# .gitignore
+src/generated/

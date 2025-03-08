@@ -7,7 +7,7 @@ export default defineConfig({
   resolve: {
     alias: {
       // Add this alias configuration
-      'ding-icons': path.resolve(__dirname, '../dist/ding-icons.es.mjs')
+      'ding-icons': path.resolve(__dirname, '../dist/index.js')
     }
   },
   base: '/ding-icons/'

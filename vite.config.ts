@@ -4,53 +4,57 @@ import dts from 'vite-plugin-dts'
 import path from 'path'
 
 export default defineConfig(async () => {
-
-  const { viteStaticCopy } = await import('vite-plugin-static-copy')
+  // const { viteStaticCopy } = await import('vite-plugin-static-copy')
 
   return {
     plugins: [
       react({
-        jsxRuntime: 'classic' // Better for component libraries
+        jsxRuntime: 'classic'
       }),
       dts({
         insertTypesEntry: true,
-        rollupTypes: true,    // Better type merging
+        rollupTypes: true,
         outDir: 'dist/types',
-        staticImport: true    // Ensure proper ESM imports
+        // include: ['src/generated/**/*', 'src/context/DingIconProvider.tsx']
+        include: ['src/**/*']
       }),
-      viteStaticCopy({
-        targets: [
-          {
-            src: 'src/fonts/*',
-            dest: 'fonts'
-          }
-        ]
-      })
     ],
     build: {
-      minify: false,         // Keep readable output for verification
+      minify: false,
       sourcemap: true,
       lib: {
-        entry: path.resolve(__dirname, 'src/index.ts'),
+        entry: [
+          path.resolve(__dirname, 'src/context/DingIconProvider.tsx'),
+          path.resolve(__dirname, 'src/generated/index.ts'),
+          path.resolve(__dirname, 'src/index.ts')
+        ],
         name: 'ding-icons',
         formats: ['es', 'cjs'],
-        fileName: (format) => 
-          format === 'es' ? 'ding-icons.es.mjs' : 'ding-icons.cjs.js'
+        fileName: (format) => `${format}/[name]`
       },
       rollupOptions: {
         external: ['react', 'react-dom'],
         output: {
-          preserveModules: true, // Crucial for tree-shaking
+          preserveModules: true,
+          preserveModulesRoot: 'src',
           exports: 'named',
+          entryFileNames: ({ name }) => {
+            // console.log(">>>name", name)
+            if (name === 'DingIconProvider') return 'context/[name].js'
+            // if (name.includes('icons')) return 'icons/[name].js'
+            return '[name].js'
+          },
           globals: {
             react: 'React',
             'react-dom': 'ReactDOM'
-          },
-          interop: 'auto'
+          }
         },
         treeshake: {
           preset: 'recommended',
-          moduleSideEffects: false
+          moduleSideEffects: (id) => {
+            // Preserve CSS side effects
+            return /\.[cm]?css$/.test(id)
+          }
         }
       }
     }

@@ -1,4 +1,5 @@
 import { Icon } from 'ding-icons';
+import React from 'react';
 
 export default function IconGrid({ icons }) {
   return (
